@@ -41,5 +41,3 @@ describe('Test for Pokédex <FavoritePokemons /> component', () => {
       expect(pikachuAsFavorite).toBeInTheDocument();
     });
 });
-
-// one more push, because of communication lost of server
