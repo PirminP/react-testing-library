@@ -6,6 +6,7 @@ import pokemons from '../data';
 import App from '../App';
 
 describe('Test for Pokédex <Pokedex /> component', () => {
+  const testIdType = 'pokemon-type';
   it('Verifies if Pokedex webpage contains heading with text "Encountered pokémons"',
     () => {
       render(
@@ -29,7 +30,7 @@ describe('Test for Pokédex <Pokedex /> component', () => {
       );
 
       const pokemonName = screen.getByTestId('pokemon-name');
-      const pokemonType = screen.getByTestId('pokemon-type');
+      const pokemonType = screen.getByTestId(testIdType);
 
       const buttonNext = screen.getByRole('button', { name: /próximo pokémon/i });
 
@@ -51,7 +52,7 @@ describe('Test for Pokédex <Pokedex /> component', () => {
       );
 
       const pokemonNames = screen.getAllByTestId('pokemon-name');
-      const pokemonTypes = screen.getAllByTestId('pokemon-type');
+      const pokemonTypes = screen.getAllByTestId(testIdType);
 
       const buttonNext = screen.getByRole('button', { name: /próximo pokémon/i });
 
@@ -90,7 +91,7 @@ describe('Test for Pokédex <Pokedex /> component', () => {
         </MemoryRouter>,
       );
 
-      const pokemonType = screen.getByTestId('pokemon-type');
+      const pokemonType = screen.getByTestId(testIdType);
       const buttonNext = screen.getByRole('button', { name: /próximo pokémon/i });
 
       const buttonPsychic = screen.getByRole('button', { name: /psychic/i });
@@ -143,7 +144,7 @@ describe('Test for Pokédex <Pokedex /> component', () => {
 
       const buttonFire = screen.getByRole('button', { name: /fire/i });
       userEvent.click(buttonFire);
-      const pokemonType = screen.getByTestId('pokemon-type');
+      const pokemonType = screen.getByTestId(testIdType);
       expect(pokemonType).toHaveTextContent(/fire/i);
 
       const buttonAll = screen.getByRole('button', { name: /all/i });
